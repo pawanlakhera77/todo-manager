@@ -1,0 +1,28 @@
+.list {
+    color:white;
+    width: 300px;
+    background-color: pink;
+    height: 50px;
+    margin:20px auto;
+    border-radius: 5px;
+    font-size: 25px;
+}
+.list p{
+    padding: 10px;
+    
+}
+.deleteMe{
+    float:right;
+    cursor:pointer;
+}
+
+.list input{
+    background-color:transparent;
+    color:white;
+    margin: 0px;
+    border:0;
+    font-size:18px;
+}
+.list input:focus{
+    outline:none;
+}
