@@ -39,6 +39,7 @@ class Login extends Component {
     render() {
         return (
             <div>
+                <div id="loginTitle">Login/Signup</div>
                 <form>
                     <input 
                         type="email"
