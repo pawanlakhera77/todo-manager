@@ -31,11 +31,20 @@ body{
   text-align: center;
 }
 
+.App #errorBox{
+    color: red;
+    margin-top: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .Home{
   background-color:orange;
   min-height:500px;
   width: 400px;
   margin:40px auto;
+  overflow-y: auto;
+  height:400px;
 }
 
 #todo-form input {
@@ -45,6 +54,7 @@ body{
   background: white;
   padding: 5px;
   margin: 20px;
+  font-size: 20px;
 }
 #todo-form button{
   width: 60px;

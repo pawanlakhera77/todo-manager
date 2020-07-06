@@ -4,7 +4,6 @@ import fire from '../config/fire';
 
 import ListItems from './ListItems'
 
-
 class Home extends Component {
     constructor(props){
        super(props);
@@ -34,7 +33,7 @@ class Home extends Component {
     addItem(e){
         e.preventDefault();
         const newItem = this.state.currentItem;
-        if(newItem !== ""){
+        if(newItem.text != ""){
             const items = [...this.state.items,newItem]
             this.setState({
                 items:items,
@@ -65,6 +64,7 @@ class Home extends Component {
             items:items
         })
     }
+
     render() {
         return(
             <div className="Home">
@@ -82,9 +82,9 @@ class Home extends Component {
                 </form>
                 </header>
                 <ListItems 
-                    items = {this.state.items} 
-                    deleteItem={this.deleteItem}
-                    setUpdate = {this.setUpdate}/>
+                    items={this.state.items} 
+                    setUpdate={this.setUpdate}
+                    deleteItem={this.deleteItem}/>
             </div>
 
         );

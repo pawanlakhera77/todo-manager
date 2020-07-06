@@ -22,18 +22,18 @@ class Login extends Component {
         e.preventDefault();
         fire.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then
             ((user) =>{
-                console.log(user)
+                console.log('Login success');
             }).catch((err)=>{
-                console.log(err);
+                document.getElementById('errorBox').innerHTML = err.message;
             })
     }
     signup(e){
         e.preventDefault();
         fire.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then
             ((user) =>{
-                console.log(user)
+                console.log('Signup success');
             }).catch((err)=>{
-                console.log(err);
+                document.getElementById('errorBox').innerHTML = err.message;
             })
     }
     render() {
@@ -60,6 +60,7 @@ class Login extends Component {
                     <button onClick={this.login}>Login</button>
                     <button onClick={this.signup}>Signup</button>
                 </form>
+                <center id="errorBox"></center>
             </div>
         );
     }

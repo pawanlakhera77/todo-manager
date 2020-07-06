@@ -6,6 +6,7 @@
     margin:20px auto;
     border-radius: 5px;
     font-size: 25px;
+    list-style:none;
 }
 .list p{
     padding: 10px;
