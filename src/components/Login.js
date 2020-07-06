@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import fire from '../config/fire';
 
-
 class Login extends Component {
     constructor(props){
        super(props);
@@ -38,13 +37,14 @@ class Login extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="loginDiv">
                 <div id="loginTitle">Login/Signup</div>
                 <form>
                     <input 
                         type="email"
                         id = "email"
                         name = "email"
+                        className="loginInp"
                         placeholder = "Enter Email Address"
                         onChange = {this.handleChange}
                         value= {this.state.email}
@@ -53,12 +53,13 @@ class Login extends Component {
                         type="password"
                         id = "password"
                         name="password"
+                        className="loginInp"
                         placeholder = "Enter Password"
                         onChange = {this.handleChange}
                         value= {this.state.password}
                         />
-                    <button onClick={this.login}>Login</button>
-                    <button onClick={this.signup}>Signup</button>
+                    <button className="loginBtn" onClick={this.login}>Login</button>
+                    <button className="signupBtn" onClick={this.signup}>Signup</button>
                 </form>
                 <center id="errorBox"></center>
             </div>

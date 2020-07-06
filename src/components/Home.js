@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
 import fire from '../config/fire';
-
 import ListItems from './ListItems'
 
 class Home extends Component {
@@ -68,23 +67,26 @@ class Home extends Component {
     render() {
         return(
             <div className="Home">
-                <button id="logout" onClick={this.logout}>Logout</button>
-                <header>
-                <form id="todo-form" onSubmit={this.addItem}>
-                    <input 
-                        type="text"
-                        placeholder="Enter Text"
-                        value={this.state.currentItem.text}
-                        onChange={this.handleInput} />
-                    <button 
-                        type="submit"
-                        >Add</button>
-                </form>
-                </header>
-                <ListItems 
-                    items={this.state.items} 
-                    setUpdate={this.setUpdate}
-                    deleteItem={this.deleteItem}/>
+                <div className="wrapper">
+                    <button id="logout" onClick={this.logout}>Logout</button>
+                    <br/><br/>
+                    <form id="todo-form" onSubmit={this.addItem}>
+                        <div className="addForm">
+                            <input 
+                                type="text"
+                                placeholder="Enter Text"
+                                value={this.state.currentItem.text}
+                                onChange={this.handleInput} />
+                            <button 
+                                type="submit"
+                                >Add</button>
+                        </div>
+                    </form>
+                    <ListItems 
+                        items={this.state.items} 
+                        setUpdate={this.setUpdate}
+                        deleteItem={this.deleteItem}/>
+                </div>
             </div>
 
         );

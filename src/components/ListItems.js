@@ -1,5 +1,4 @@
 import React,{Component} from 'react'
-
 import FlipMove from 'react-flip-move'
 
 import './ListItems.css'
@@ -24,6 +23,10 @@ class ListItems extends Component{
         var data = this.state.items;
         var from =Number(this.dragged.dataset.id);
         var to = Number(this.over.parentNode.dataset.id);
+        var totalItems = document.getElementById("list_items").getElementsByTagName("li").length;
+        console.log('from',from,'to',to);
+        if(from < to &&  to < (totalItems-1)) to --;
+        console.log('from',from,'to',to);
         data.splice(to, 0, data.splice(from, 1)[0]);
         this.setState({items: data});
       }
@@ -35,6 +38,7 @@ class ListItems extends Component{
     render(){
         var listItems = this.state.items.map((item,i) =>{
             return (
+                <div className="listDiv">
                 <li 
                         className="list" 
                         key={item.key}
@@ -60,15 +64,14 @@ class ListItems extends Component{
                     X
                 </span>
                 </li>
+                </div>
             )
             })
         return (
-            <FlipMove> 
+            <FlipMove duration={500} easing="ease-in-out"> 
             <div onDragOver={this.dragOver.bind(this)}>   
-                          
-                    <ul >
+                    <ul id="list_items">
                     {listItems}</ul>
-                
             </div>
             </FlipMove>
         )

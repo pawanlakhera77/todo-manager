@@ -1,16 +1,19 @@
 .list {
     color:white;
     width: 300px;
-    background-color: pink;
+    background-color: #46b8da;
     height: 50px;
-    margin:20px auto;
     border-radius: 5px;
     font-size: 25px;
+    padding: 0px 15px;
     list-style:none;
 }
 .list p{
     padding: 10px;
     
+}
+.list span{
+    margin-top:16px;
 }
 .deleteMe{
     float:right;
@@ -26,4 +29,8 @@
 }
 .list input:focus{
     outline:none;
+}
+
+#list_items .listDiv{
+    margin-bottom:10px;
 }
