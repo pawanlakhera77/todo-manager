@@ -1,6 +1,4 @@
 import React,{Component} from 'react'
-import FlipMove from 'react-flip-move'
-
 import './ListItems.css'
 
 class ListItems extends Component{
@@ -8,9 +6,12 @@ class ListItems extends Component{
         super(props);
         this.state = {...props};
     }
-    componentWillReceiveProps(nextProps) {
-        this.setState({ items: nextProps.items });  
-    }
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (nextProps.items !== prevState.items) {
+          return ({ items: nextProps.items }) // <- this is setState equivalent
+        }
+        return null
+      }
     dragStart(e) {
         this.dragged = e.currentTarget;
         e.dataTransfer.effectAllowed = 'move';
@@ -24,21 +25,22 @@ class ListItems extends Component{
         var from =Number(this.dragged.dataset.id);
         var to = Number(this.over.parentNode.dataset.id);
         var totalItems = document.getElementById("list_items").getElementsByTagName("li").length;
+        console.log('tos',this.over.parentNode);
         console.log('from',from,'to',to);
-        if(from < to &&  to < (totalItems-1)) to --;
+        if(to > (totalItems-1)) to --;
         console.log('from',from,'to',to);
         data.splice(to, 0, data.splice(from, 1)[0]);
         this.setState({items: data});
       }
     dragOver(e) {
         e.preventDefault();
-        this.dragged.style.display = "none";
         this.over = e.target;
     }    
     render(){
         var listItems = this.state.items.map((item,i) =>{
             return (
-                <div className="listDiv">
+                <div className="listDiv" key={item.key}
+                data-id={i}>
                 <li 
                         className="list" 
                         key={item.key}
@@ -68,12 +70,12 @@ class ListItems extends Component{
             )
             })
         return (
-            <FlipMove duration={500} easing="ease-in-out"> 
+            
             <div onDragOver={this.dragOver.bind(this)}>   
                     <ul id="list_items">
                     {listItems}</ul>
             </div>
-            </FlipMove>
+            
         )
     }
     

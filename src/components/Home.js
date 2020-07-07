@@ -32,7 +32,7 @@ class Home extends Component {
     addItem(e){
         e.preventDefault();
         const newItem = this.state.currentItem;
-        if(newItem.text != ""){
+        if(newItem.text !== ""){
             const items = [...this.state.items,newItem]
             this.setState({
                 items:items,
